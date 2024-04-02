@@ -1,0 +1,1 @@
+<p>{{__('I hope you’re well. This is just a reminder that payment on invoice '.$payment->invoice.' (total '.$payment->dueAmount.'), which we sent on '.$payment->date.', is due today. You can make payment to the bank account specified on the invoice.')}}</p>

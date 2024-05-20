@@ -24,6 +24,28 @@
     </div>
     <div class="col-md-12">
         <div class="form-group">
+            {{Form::label('nuit',__('Nuit'),['class'=>'form-control-label'])}}
+            {{Form::text('nuit',null,array('class'=>'form-control','placeholder'=>__('Nuit'),'required'=>'required'))}}
+            @error('nuit')
+            <small class="invalid-nuit" role="alert">
+                <strong class="text-danger">{{ $message }}</strong>
+            </small>
+            @enderror
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            {{Form::label('endereco',__('Endereço'),['class'=>'form-control-label'])}}
+            {{Form::text('endereco',null,array('class'=>'form-control','placeholder'=>__('Endereço'),'required'=>'required'))}}
+            @error('endereco')
+            <small class="invalid-endereco" role="alert">
+                <strong class="text-danger">{{ $message }}</strong>
+            </small>
+            @enderror
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
             {{Form::label('password',__('Password'),['class'=>'form-control-label'])}}
             {{Form::password('password',array('class'=>'form-control','placeholder'=>__('Enter User Password'),'required'=>'required','minlength'=>"6"))}}
             @error('password')

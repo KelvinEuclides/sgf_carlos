@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sgfcarlos
+      MYSQL_USER: carlos
+      MYSQL_PASSWORD: carlos
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+  app:
+    image: yuyu09/sos24repository:sgfcarlos
+    container_name: laravel_app
+    depends_on:
+      - mysql
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:

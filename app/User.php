@@ -22,6 +22,8 @@ class User extends Authenticatable
         'password',
         'type',
         'avatar',
+        'nuit',
+        'address',
         'lang',
         'delete_status',
         'plan',

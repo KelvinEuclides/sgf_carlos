@@ -4,6 +4,8 @@ use App\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Str;
+
 
 class UsersTableSeeder extends Seeder
 {
@@ -130,7 +132,7 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Super Admin',
                 'email' => 'superadmin@example.com',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('password'),
                 'type' => 'super admin',
                 'lang' => 'en',
                 'avatar' => 'avatar.png',
@@ -235,7 +237,9 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Company',
                 'email' => 'company@example.com',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('password'),
+                'address' => 'Very complex address 1',
+                'nuit' => random_int(9, 9),
                 'type' => 'company',
                 'lang' => 'en',
                 'avatar' => 'avatar.png',
@@ -258,7 +262,9 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Customer',
                 'email' => 'customer@example.com',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('password'),
+                'address' => 'Very complex address 1',
+                'nuit' => random_int(9, 9),
                 'type' => 'customer',
                 'lang' => 'en',
                 'avatar' => 'avatar.png',
@@ -289,7 +295,9 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Vendor',
                 'email' => 'vendor@example.com',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('password'),
+                'address' => 'Very complex address 1',
+                'nuit' => random_int(9, 9),
                 'type' => 'vendor',
                 'lang' => 'en',
                 'avatar' => 'avatar.png',
@@ -390,7 +398,9 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Manager',
                 'email' => 'manager@example.com',
-                'password' => Hash::make('1234'),
+                'password' => Hash::make('password'),
+                'address' => 'Very complex address 1',
+                'nuit' => random_int(9, 9),
                 'type' => 'manager',
                 'lang' => 'en',
                 'avatar' => 'avatar.png',

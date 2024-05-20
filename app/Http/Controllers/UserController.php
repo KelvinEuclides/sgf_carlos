@@ -88,6 +88,8 @@ class UserController extends Controller
             $user['email']        = $request->email;
             $psw                  = $request->password;
             $user['password']     = Hash::make($request->password);
+            $user['address']      = $request->address;
+            $user['nuit']        = $request->nuit;
             $user['type']         = 'company';
             $user['lang']         = !empty($default_language) ? $default_language->value : '';
             $user['subscription'] = Subscription::first()->id;

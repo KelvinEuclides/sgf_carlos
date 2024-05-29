@@ -39,6 +39,9 @@ RUN chmod -R 777 bootstrap/
 RUN chmod -R 777 resources/
 RUN chmod -R 777 public/
 
+#Run Migrations
+RUN php artisan migrate
+
 # Clear caches
 RUN php artisan optimize:clear
 

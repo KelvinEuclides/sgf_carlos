@@ -11,12 +11,18 @@ services:
       - "3306:3306"
     networks:
       - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   app:
     image: yuyu09/sos24repository:sgfcarlos
     container_name: laravel_app
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     ports:
       - "8080:8080"
     networks:

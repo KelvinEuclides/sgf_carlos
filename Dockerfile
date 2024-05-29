@@ -21,8 +21,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set working directory
 WORKDIR /var/www
 
-# Copy the Laravel application
-COPY . .
+# Clone the repository and pull the latest changes
+RUN git clone https://github.com/KelvinEuclides/sgf_carlos.git . \
+    && git checkout main \
+    && git pull origin main
 
 # Install Laravel dependencies
 RUN composer install --no-scripts --no-autoloader

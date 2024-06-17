@@ -31,6 +31,6 @@ networks:
 
 volumes:
   app-data:
-    external: true
+    driver: local 
   mysql-data:
-    external: true
+    driver: local 

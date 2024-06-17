@@ -1,3 +1,7 @@
+@php
+use App\Subscription;
+$subscriptions = Subscription::pluck('name','id');
+@endphp
 {{Form::open(array('url'=>'users','method'=>'post'))}}
 <div class="row">
     <div class="col-md-12">
@@ -44,6 +48,13 @@
             @enderror
         </div>
     </div>
+   
+    <div class="col-md-12">
+        <div class="form-group">
+            {{Form::label('subscription',__('Subscription'),['class'=>'form-control-label'])}}
+            {!! Form::select('role',$subscriptions, null,array('class' => 'form-control select2','required'=>'required')) !!}
+     </div>
+   
     <div class="col-md-12">
         <div class="form-group">
             {{Form::label('password',__('Password'),['class'=>'form-control-label'])}}

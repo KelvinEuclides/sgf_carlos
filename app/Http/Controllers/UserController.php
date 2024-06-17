@@ -26,6 +26,7 @@ class UserController extends Controller
     public function index()
     {
         $user = \Auth::user();
+
         if(\Auth::user()->type == 'super admin')
         {
             $users = User::where('created_by', '=', $user->creatorId())->where('type', '=', 'company')->get();

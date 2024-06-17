@@ -1,9 +1,10 @@
 services:
   mysql:
-    image: mysql:8.0
+    restart: 'always'
+    image: mysql/mysql-server:latest
     container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: Bn5W}71-b0~(
       MYSQL_DATABASE: sgfcarlos
       MYSQL_USER: carlos
       MYSQL_PASSWORD: carlos
@@ -11,24 +12,25 @@ services:
       - "3306:3306"
     networks:
       - app-network
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+    volumes:
+      - mysql-data:/var/lib/mysql
 
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    restart: 'always'
+    image: yuyu09/sos24repository:sgfcarlos
     container_name: laravel_app
-    depends_on:
-      mysql:
-        condition: service_healthy
     ports:
       - "8080:8080"
     networks:
       - app-network
+    volumes:
+      - app-data:/var/www
 
 networks:
   app-network:
+
+volumes:
+  app-data:
+    external: true
+  mysql-data:
+    external: true

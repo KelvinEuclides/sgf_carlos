@@ -48,13 +48,13 @@ $subscriptions = Subscription::pluck('name','id');
             @enderror
         </div>
     </div>
-   
+    @if(\Auth::user()->type == 'super admin')
     <div class="col-md-12">
         <div class="form-group">
             {{Form::label('subscription',__('Subscription'),['class'=>'form-control-label'])}}
-            {!! Form::select('role',$subscriptions, null,array('class' => 'form-control select2','required'=>'required')) !!}
+            {!! Form::select('subscription',$subscriptions, null,array('class' => 'form-control select2','required'=>'required')) !!}
      </div>
-   
+     @endif
     <div class="col-md-12">
         <div class="form-group">
             {{Form::label('password',__('Password'),['class'=>'form-control-label'])}}

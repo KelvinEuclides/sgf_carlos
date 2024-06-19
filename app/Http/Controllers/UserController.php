@@ -93,7 +93,7 @@ class UserController extends Controller
             $user['nuit']        = $request->nuit;
             $user['type']         = 'company';
             $user['lang']         = !empty($default_language) ? $default_language->value : '';
-            $user['subscription'] = Subscription::first()->id;
+            $user['subscription'] = $request->subscription;
             $user['created_by']   = \Auth::user()->creatorId();
             $user->save();
 

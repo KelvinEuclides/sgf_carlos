@@ -1,4 +1,3 @@
-
 <?php $__env->startSection('page-title'); ?>
     <?php if(\Auth::user()->type=='super admin'): ?>
         <?php echo e(__('Company')); ?>
@@ -83,12 +82,19 @@
                         <div class="card-footer">
                             <div class="row align-items-center">
                                 <?php if($user->is_active==1): ?>
-                                    <div class="col-6">
+                                    <div class="col-8">
                                         <?php if(Gate::check('edit user') || \Auth::user()->type=='super admin'): ?>
                                             <a href="#" class="dropdown-item text-sm" data-url="<?php echo e(route('users.edit',$user->id)); ?>" data-ajax-popup="true" data-title="<?php echo e(__('Update User')); ?>" data-toggle="tooltip" data-original-title="<?php echo e(__('Edit')); ?>"> <i class="far fa-edit"></i></a>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="col-6 text-right">
+                                    <div class="col-2 text-right">
+                                        <?php if(Gate::check('delete user') || \Auth::user()->type=='super admin'): ?>
+                                            <a data-toggle="tooltip" data-original-title="<?php echo e(__('Disable')); ?>" class="dropdown-item text-sm" data-confirm="<?php echo e(__('Warning').'|'.__('Are you sure you want to disable')); ?>">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="col-2 text-right">
                                         <?php if(Gate::check('delete user') || \Auth::user()->type=='super admin'): ?>
                                             <a data-toggle="tooltip" data-original-title="<?php echo e(__('Delete')); ?>" class="dropdown-item text-sm" data-confirm="<?php echo e(__('Are You Sure?').'|'.__('This action can not be undone. Do you want to continue?')); ?>" data-confirm-yes="document.getElementById('delete-form-<?php echo e($user['id']); ?>').submit();">
                                                 <i class="fas fa-trash"></i>

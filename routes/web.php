@@ -111,12 +111,12 @@ Route::get('customers/show/{id}', 'UserController@customerShow')->middleware(
         'XSS',
     ]
 )->name('customers.show');
-// Route::post('customers/disable/{id}', 'UserController@disable')->middleware(
-//     [
-//         'auth',
-//         'XSS',
-//     ]
-// )->name('customers.disable');
+Route::post('customers/disable/{id}', 'UserController@disable')->middleware(
+    [
+        'auth',
+        'XSS',
+    ]
+)->name('customers.disable');
 
 Route::get('vendors', 'UserController@vendor')->middleware(
     [

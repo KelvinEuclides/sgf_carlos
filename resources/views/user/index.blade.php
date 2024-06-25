@@ -91,8 +91,8 @@
                                             <a data-toggle="tooltip" data-original-title="{{__('Disable')}}" class="dropdown-item text-sm" data-confirm="{{__('Warning').'|'.__('Are you sure you want to disable ?')}}">
                                                 <i class="fa fa-times"></i>
                                             </a>
-                                            <!-- {!! Form::open(['method' => 'POST', 'route' => ['customers.disable', $user['id']],'id'=>'disable-form-'.$user['id']]) !!}
-                                            {!! Form::close() !!} -->
+                                            {!! Form::open(['method' => 'POST', 'route' => ['customers.disable', $user['id']],'id'=>'disable-form-'.$user['id']]) !!}
+                                            {!! Form::close() !!}
                                         @endcan
                                     </div>
                                     <div class="col-2 text-right">

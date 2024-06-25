@@ -387,19 +387,19 @@ class UserController extends Controller
 
     }
 
-    // public function disable($user_id){
-    //     dd("test");
-    //     $user = \Auth::user();
-    //     if(\Auth::user()->can('manage customer'))
-    //     {
-    //     $user = User::find($user_id);
-    //     $user->is_active = 0;
-    //     $user->save();
-    //     return view('user.subscription', compact('user', 'subscriptions'));
-    //     }else{
-    //         return redirect()->back()->with('error', __('Permission denied.')); 
-    //     }
-    // }
+    public function disable($user_id){
+        dd("test");
+        $user = \Auth::user();
+        if(\Auth::user()->can('manage customer'))
+        {
+        $user = User::find($user_id);
+        $user->is_active = 0;
+        $user->save();
+        return view('user.subscription', compact('user', 'subscriptions'));
+        }else{
+            return redirect()->back()->with('error', __('Permission denied.')); 
+        }
+    }
 
     //    -------------------------Customers------------------------------
 

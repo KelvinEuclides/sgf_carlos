@@ -88,10 +88,14 @@
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-2 text-right">
-                                        <?php if(Gate::check('delete user') || \Auth::user()->type=='super admin'): ?>
-                                            <a data-toggle="tooltip" data-original-title="<?php echo e(__('Disable')); ?>" class="dropdown-item text-sm" data-confirm="<?php echo e(__('Warning').'|'.__('Are you sure you want to disable')); ?>">
+                                        <?php if(Gate::check('disable user') || \Auth::user()->type=='super admin'): ?>
+                                            <a data-toggle="tooltip" data-original-title="<?php echo e(__('Disable')); ?>" class="dropdown-item text-sm" data-confirm="<?php echo e(__('Warning').'|'.__('Are you sure you want to disable ?')); ?>">
                                                 <i class="fa fa-times"></i>
                                             </a>
+                                            <?php echo Form::open(['method' => 'POST', 'route' => ['customers.disable', $user['id']],'id'=>'disable-form-'.$user['id']]); ?>
+
+                                            <?php echo Form::close(); ?>
+
                                         <?php endif; ?>
                                     </div>
                                     <div class="col-2 text-right">

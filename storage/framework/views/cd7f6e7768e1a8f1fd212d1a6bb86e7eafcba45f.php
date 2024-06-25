@@ -1,5 +1,5 @@
 <?php
-<!-- use App\Subscription; -->
+use App\Subscription;
 $subscriptions = Subscription::pluck('name','id');
 ?>
 <?php echo e(Form::open(array('url'=>'users','method'=>'post'))); ?>

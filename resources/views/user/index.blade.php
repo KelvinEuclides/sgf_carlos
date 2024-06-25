@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="col text-right">
-                                    <span class="h6 text-sm mb-0"><a href="#" data-url="{{ route('subscription.upgrade',$user->id) }}" data-size="lg" data-ajax-popup="true" data-title="{{__('Upgrade Subscription')}}"><i class="fas fa-pen-nib" style="font-size: 22px;"></i></a></span>
+                                    <span class="h6 text-sm mb-0"><a href="#" data-url="{{ route('subscription.upgrade',$user->id) }}" data-size="lg" data-ajax-popup="true" data-title="{{__('Upgrade Subscription')}}"><i class="fa fa-wrench" style="font-size: 22px;"></i></a></span>
                                     <span class="d-block text-sm">{{__('Upgrade')}}</span>
                                 </div>
                             </div>
